@@ -47,10 +47,11 @@ def withdraw(withdraw_amount, password):
     elif withdraw_amount > account_balance:
         print("you cannot withdraw more than your account balance")
         return None
-    elif password != account_password:
+    if password != account_password:
         print("Wrong Passowrd")
-        account_balance -= withdraw_amount
-        return account_balance
+        return None
+    account_balance -= withdraw_amount
+    return account_balance
 
 
 new_account('Joe', 'soup', 100)
